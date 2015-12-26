@@ -24349,7 +24349,7 @@
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -24360,6 +24360,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _SearchGithub = __webpack_require__(219);
+
+	var _SearchGithub2 = _interopRequireDefault(_SearchGithub);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24379,34 +24383,25 @@
 	  }
 
 	  _createClass(Main, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "main" },
+	        'div',
+	        { className: 'main' },
 	        _react2.default.createElement(
-	          "nav",
-	          { className: "navbar navbar-default",
-	            role: "navigation" },
+	          'nav',
+	          { className: 'navbar navbar-default', role: 'navigation' },
 	          _react2.default.createElement(
-	            "div",
-	            { className: "col-sm-8 col-sm-offset-2",
-	              style: {
-	                marginTop: 15
-	              } },
-	            "Menu "
-	          ),
-	          " "
+	            'div',
+	            { className: 'col-sm-8 col-sm-offset-2', style: { marginTop: 15 } },
+	            _react2.default.createElement(_SearchGithub2.default, null)
+	          )
 	        ),
-	        " ",
 	        _react2.default.createElement(
-	          "div",
-	          { className: "container" },
-	          " ",
-	          this.props.children,
-	          " "
-	        ),
-	        " "
+	          'div',
+	          { className: 'container' },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -25420,6 +25415,56 @@
 
 	module.exports = Firebase;
 
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SearchGithub = _react2.default.createClass({
+	    displayName: 'SearchGithub',
+
+	    mixins: [_reactRouter.History],
+	    setRef: function setRef(ref) {
+	        this.usernameRef = ref;
+	    },
+	    handleSubmit: function handleSubmit() {
+	        var username = this.usernameRef.value;
+	        this.usernameRef.value = '';
+	        this.history.pushState(null, 'profile/' + username);
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'form',
+	            { className: 'form-inline', role: 'form' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'form-group' },
+	                _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'type github username', ref: this.setRef })
+	            ),
+	            _react2.default.createElement(
+	                'button',
+	                { type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+	                'Add Note'
+	            )
+	        );
+	    }
+	});
+
+	exports.default = SearchGithub;
 
 /***/ }
 /******/ ]);
