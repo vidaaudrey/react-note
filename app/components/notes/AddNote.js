@@ -1,6 +1,6 @@
-var React = require('react')
+import React from'react'
 
-var AddNote = React.createClass({
+const AddNote = React.createClass({
     propTypes: {
         username: React.PropTypes.string.isRequired,
         addNote: React.PropTypes.func.isRequired
@@ -9,7 +9,7 @@ var AddNote = React.createClass({
         this.note = ref
     },
     handleSubmit: function(){
-        var newNote = this.note.value
+        const newNote = this.note.value
         this.note.value = ''
         this.props.addNote(newNote)
     },

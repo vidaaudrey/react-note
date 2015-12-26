@@ -1,6 +1,6 @@
-var React = require('react')
+import React from'react'
 
-var UserProfile = React.createClass({
+const UserProfile = React.createClass({
   propTypes: {
     username: React.PropTypes.string.isRequired,
     bio: React.PropTypes.object.isRequired

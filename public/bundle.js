@@ -46,15 +46,28 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(158);
-	var Router = __webpack_require__(159).Router;
-	var routes = __webpack_require__(208);
+	var _react = __webpack_require__(1);
 
-	ReactDOM.render(React.createElement(
-	    Router,
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(158);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactRouter = __webpack_require__(159);
+
+	var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+	var _routes = __webpack_require__(208);
+
+	var _routes2 = _interopRequireDefault(_routes);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_reactDom2.default.render(_react2.default.createElement(
+	    _reactRouter2.default,
 	    null,
-	    routes
+	    _routes2.default
 	), document.getElementById('app'));
 
 /***/ },
@@ -24314,20 +24327,24 @@
 
 	"use strict";
 
-	var React = __webpack_require__(1);
+	var _react = __webpack_require__(1);
 
-	var Main = React.createClass({
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Main = _react2.default.createClass({
 	  displayName: "Main",
 
 	  render: function render() {
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      "div",
 	      { className: "main" },
-	      React.createElement(
+	      _react2.default.createElement(
 	        "nav",
 	        { className: "navbar navbar-default",
 	          role: "navigation" },
-	        React.createElement(
+	        _react2.default.createElement(
 	          "div",
 	          { className: "col-sm-8 col-sm-offset-2",
 	            style: {
@@ -24338,7 +24355,7 @@
 	        " "
 	      ),
 	      " ",
-	      React.createElement(
+	      _react2.default.createElement(
 	        "div",
 	        { className: "container" },
 	        " ",
@@ -24356,20 +24373,22 @@
 /* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	var React = __webpack_require__(1);
+	var _react = __webpack_require__(1);
 
-	var ReactDOM = __webpack_require__(158);
+	var _react2 = _interopRequireDefault(_react);
 
-	var Home = React.createClass({
-	    displayName: 'Home',
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Home = _react2.default.createClass({
+	    displayName: "Home",
 
 	    render: function render() {
-	        return React.createElement(
-	            'h2',
-	            { className: 'text-center' },
-	            'Search by github username'
+	        return _react2.default.createElement(
+	            "h2",
+	            { className: "text-center" },
+	            "Search by github username"
 	        );
 	    }
 	});
@@ -24382,18 +24401,40 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var Router = __webpack_require__(159);
-	var Repos = __webpack_require__(212);
-	var UserProfile = __webpack_require__(213);
-	var Notes = __webpack_require__(214);
-	var ReactFireMixin = __webpack_require__(215);
-	var Firebase = __webpack_require__(216);
+	var _react = __webpack_require__(1);
 
-	var Profile = React.createClass({
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+	var _Repos = __webpack_require__(212);
+
+	var _Repos2 = _interopRequireDefault(_Repos);
+
+	var _UserProfile = __webpack_require__(213);
+
+	var _UserProfile2 = _interopRequireDefault(_UserProfile);
+
+	var _Notes = __webpack_require__(214);
+
+	var _Notes2 = _interopRequireDefault(_Notes);
+
+	var _reactfire = __webpack_require__(217);
+
+	var _reactfire2 = _interopRequireDefault(_reactfire);
+
+	var _firebase = __webpack_require__(218);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Profile = _react2.default.createClass({
 	    displayName: 'Profile',
 
-	    mixins: [ReactFireMixin],
+	    mixins: [_reactfire2.default],
 	    getInitialState: function getInitialState() {
 	        return {
 	            notes: ['a', 'b'],
@@ -24405,7 +24446,7 @@
 	    },
 
 	    componentDidMount: function componentDidMount() {
-	        this.ref = new Firebase('https://react-note-au.firebaseio.com');
+	        this.ref = new _firebase2.default('https://react-note-au.firebaseio.com');
 	        // this.ref = new Firebase('https://github-note-taker.firebaseio.com')
 	        // when mounted, 'notes' is going to bind to firebase childRef. bindAsArray is firebase method
 	        var childRef = this.ref.child(this.props.params.username);
@@ -24423,23 +24464,23 @@
 
 	    render: function render() {
 	        console.log('username', this.props.params.username);
-	        return React.createElement(
+	        return _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
-	            React.createElement(
+	            _react2.default.createElement(
 	                'div',
 	                { className: 'col-md-4' },
-	                React.createElement(UserProfile, { bio: this.state.bio, username: this.props.params.username })
+	                _react2.default.createElement(_UserProfile2.default, { bio: this.state.bio, username: this.props.params.username })
 	            ),
-	            React.createElement(
+	            _react2.default.createElement(
 	                'div',
 	                { className: 'col-md-4' },
-	                React.createElement(Repos, { repos: this.state.repos, username: this.props.params.username })
+	                _react2.default.createElement(_Repos2.default, { repos: this.state.repos, username: this.props.params.username })
 	            ),
-	            React.createElement(
+	            _react2.default.createElement(
 	                'div',
 	                { className: 'col-md-4' },
-	                React.createElement(Notes, {
+	                _react2.default.createElement(_Notes2.default, {
 	                    notes: this.state.notes,
 	                    username: this.props.params.username,
 	                    addNote: this.handleAddNote
@@ -24457,17 +24498,21 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
+	var _react = __webpack_require__(1);
 
-	var Repos = React.createClass({
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Repos = _react2.default.createClass({
 	  displayName: 'Repos',
 
 	  propTypes: {
-	    username: React.PropTypes.string.isRequired,
-	    repos: React.PropTypes.array.isRequired
+	    username: _react2.default.PropTypes.string.isRequired,
+	    repos: _react2.default.PropTypes.array.isRequired
 	  },
 	  render: function render() {
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      'div',
 	      null,
 	      ' Repos',
@@ -24484,17 +24529,21 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
+	var _react = __webpack_require__(1);
 
-	var UserProfile = React.createClass({
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var UserProfile = _react2.default.createClass({
 	  displayName: 'UserProfile',
 
 	  propTypes: {
-	    username: React.PropTypes.string.isRequired,
-	    bio: React.PropTypes.object.isRequired
+	    username: _react2.default.PropTypes.string.isRequired,
+	    bio: _react2.default.PropTypes.object.isRequired
 	  },
 	  render: function render() {
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      'div',
 	      null,
 	      this.props.username,
@@ -24511,32 +24560,42 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var NotesList = __webpack_require__(217);
-	var AddNote = __webpack_require__(218);
+	var _react = __webpack_require__(1);
 
-	var Notes = React.createClass({
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NotesList = __webpack_require__(215);
+
+	var _NotesList2 = _interopRequireDefault(_NotesList);
+
+	var _AddNote = __webpack_require__(216);
+
+	var _AddNote2 = _interopRequireDefault(_AddNote);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Notes = _react2.default.createClass({
 	    displayName: 'Notes',
 
 	    propTypes: {
-	        username: React.PropTypes.string.isRequired,
-	        notes: React.PropTypes.array.isRequired,
-	        addNote: React.PropTypes.func.isRequired
+	        username: _react2.default.PropTypes.string.isRequired,
+	        notes: _react2.default.PropTypes.array.isRequired,
+	        addNote: _react2.default.PropTypes.func.isRequired
 	    },
 	    render: function render() {
 	        // console.log('notes', this.props.notes);
-	        return React.createElement(
+	        return _react2.default.createElement(
 	            'div',
 	            null,
-	            React.createElement(
+	            _react2.default.createElement(
 	                'h3',
 	                null,
 	                ' Notes for ',
 	                this.props.username,
 	                ' '
 	            ),
-	            React.createElement(AddNote, { username: this.props.username, addNote: this.props.addNote }),
-	            React.createElement(NotesList, { notes: this.props.notes })
+	            _react2.default.createElement(_AddNote2.default, { username: this.props.username, addNote: this.props.addNote }),
+	            _react2.default.createElement(_NotesList2.default, { notes: this.props.notes })
 	        );
 	    }
 	});
@@ -24545,6 +24604,86 @@
 
 /***/ },
 /* 215 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NotesList = _react2.default.createClass({
+	  displayName: 'NotesList',
+
+	  render: function render() {
+	    var notes = this.props.notes.map(function (note, index) {
+	      return _react2.default.createElement(
+	        'li',
+	        { className: 'list-group-item', key: index },
+	        note['.value']
+	      );
+	    });
+	    return _react2.default.createElement(
+	      'ul',
+	      { className: 'list-group' },
+	      notes
+	    );
+	  }
+	});
+
+	module.exports = NotesList;
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AddNote = _react2.default.createClass({
+	    displayName: 'AddNote',
+
+	    propTypes: {
+	        username: _react2.default.PropTypes.string.isRequired,
+	        addNote: _react2.default.PropTypes.func.isRequired
+	    },
+	    setRef: function setRef(ref) {
+	        this.note = ref;
+	    },
+	    handleSubmit: function handleSubmit() {
+	        var newNote = this.note.value;
+	        this.note.value = '';
+	        this.props.addNote(newNote);
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'form',
+	            { className: 'form-inline', role: 'form' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'form-group' },
+	                _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Add new note', ref: this.setRef })
+	            ),
+	            _react2.default.createElement(
+	                'button',
+	                { type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
+	                'Add Note'
+	            )
+	        );
+	    }
+	});
+
+	module.exports = AddNote;
+
+/***/ },
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -24915,7 +25054,7 @@
 
 
 /***/ },
-/* 216 */
+/* 218 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.3.2
@@ -25187,78 +25326,6 @@
 
 	module.exports = Firebase;
 
-
-/***/ },
-/* 217 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var NotesList = React.createClass({
-	  displayName: 'NotesList',
-
-	  render: function render() {
-	    var notes = this.props.notes.map(function (note, index) {
-	      return React.createElement(
-	        'li',
-	        { className: 'list-group-item', key: index },
-	        note['.value']
-	      );
-	    });
-	    return React.createElement(
-	      'ul',
-	      { className: 'list-group' },
-	      notes
-	    );
-	  }
-	});
-
-	module.exports = NotesList;
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var AddNote = React.createClass({
-	    displayName: 'AddNote',
-
-	    propTypes: {
-	        username: React.PropTypes.string.isRequired,
-	        addNote: React.PropTypes.func.isRequired
-	    },
-	    setRef: function setRef(ref) {
-	        this.note = ref;
-	    },
-	    handleSubmit: function handleSubmit() {
-	        var newNote = this.note.value;
-	        this.note.value = '';
-	        this.props.addNote(newNote);
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            'form',
-	            { className: 'form-inline', role: 'form' },
-	            React.createElement(
-	                'div',
-	                { className: 'form-group' },
-	                React.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Add new note', ref: this.setRef })
-	            ),
-	            React.createElement(
-	                'button',
-	                { type: 'submit', className: 'btn btn-primary', onClick: this.handleSubmit },
-	                'Add Note'
-	            )
-	        );
-	    }
-	});
-
-	module.exports = AddNote;
 
 /***/ }
 /******/ ]);

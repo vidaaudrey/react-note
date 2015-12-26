@@ -1,6 +1,7 @@
-var React = require('react')
+import React from 'react'
 
-var Main = React.createClass({
+
+const Main = React.createClass({
   render: function () {
     return ( < div className = "main" >
       < nav className = "navbar navbar-default"

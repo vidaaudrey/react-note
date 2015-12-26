@@ -1,8 +1,9 @@
-var React = require('react')
-var NotesList = require('./NotesList')
-var AddNote = require('./AddNote')
+import React from 'react'
 
-var Notes = React.createClass({
+import NotesList from './NotesList'
+import AddNote from './AddNote'
+
+const Notes = React.createClass({
     propTypes: {
         username: React.PropTypes.string.isRequired,
         notes: React.PropTypes.array.isRequired, 

@@ -1,12 +1,12 @@
-var React = require('react')
-var Router = require('react-router')
-var Repos = require('./github/Repos')
-var UserProfile = require('./github/UserProfile')
-var Notes = require('./notes/Notes')
-var ReactFireMixin = require('reactfire')
-var Firebase = require('firebase')
+import React from 'react'
+import Router from 'react-router'
+import Repos from './github/Repos'
+import UserProfile from './github/UserProfile'
+import Notes from './notes/Notes'
+import ReactFireMixin from 'reactfire'
+import Firebase from 'firebase'
 
-var Profile = React.createClass({
+const Profile = React.createClass({
   mixins: [ReactFireMixin],
     getInitialState(){
         return{
@@ -22,7 +22,7 @@ var Profile = React.createClass({
         this.ref = new Firebase('https://react-note-au.firebaseio.com')
         // this.ref = new Firebase('https://github-note-taker.firebaseio.com')
         // when mounted, 'notes' is going to bind to firebase childRef. bindAsArray is firebase method
-        var childRef = this.ref.child(this.props.params.username);
+        const childRef = this.ref.child(this.props.params.username);
         this.bindAsArray(childRef, 'notes' )
     },
     componentWillUnmount: function(){
@@ -31,7 +31,7 @@ var Profile = React.createClass({
     },
 
     handleAddNote: function(newNote){
-      var index = this.state.notes.length;
+      let index = this.state.notes.length;
       this.ref.child(this.props.params.username).child(index).set(newNote)
     }, 
     

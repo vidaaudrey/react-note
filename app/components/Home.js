@@ -1,8 +1,6 @@
-var React = require('react')
+import React from 'react'
 
-var ReactDOM = require('react-dom')
-
-var Home = React.createClass({
+const Home = React.createClass({
     render: function(){
         return (
             <h2 className="text-center">
