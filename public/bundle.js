@@ -24310,21 +24310,42 @@
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
 
 	var Main = React.createClass({
-	    displayName: 'Main',
+	  displayName: "Main",
 
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            null,
-	            'Hello World',
-	            this.props.children
-	        );
-	    }
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      { className: "main" },
+	      React.createElement(
+	        "nav",
+	        { className: "navbar navbar-default",
+	          role: "navigation" },
+	        React.createElement(
+	          "div",
+	          { className: "col-sm-8 col-sm-offset-2",
+	            style: {
+	              marginTop: 15
+	            } },
+	          "Menu "
+	        ),
+	        " "
+	      ),
+	      " ",
+	      React.createElement(
+	        "div",
+	        { className: "container" },
+	        " ",
+	        this.props.children,
+	        " "
+	      ),
+	      " "
+	    );
+	  }
 	});
 
 	module.exports = Main;
