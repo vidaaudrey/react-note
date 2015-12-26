@@ -19,8 +19,8 @@ var Profile = React.createClass({
     },
 
     componentDidMount: function(){
-        // this.ref = new Firebase('https://react-note-au.firebaseio.com')
-        this.ref = new Firebase('https://github-note-taker.firebaseio.com')
+        this.ref = new Firebase('https://react-note-au.firebaseio.com')
+        // this.ref = new Firebase('https://github-note-taker.firebaseio.com')
         // when mounted, 'notes' is going to bind to firebase childRef. bindAsArray is firebase method
         var childRef = this.ref.child(this.props.params.username);
         this.bindAsArray(childRef, 'notes' )
@@ -29,6 +29,12 @@ var Profile = React.createClass({
       // remove the listener 
       this.unbind('notes');
     },
+
+    handleAddNote: function(newNote){
+      var index = this.state.notes.length;
+      this.ref.child(this.props.params.username).child(index).set(newNote)
+    }, 
+    
     render: function(){
         console.log('username', this.props.params.username);
         return (
@@ -40,10 +46,14 @@ var Profile = React.createClass({
                 <Repos repos={this.state.repos}  username={this.props.params.username}/>
                </div>
                <div className="col-md-4">
-                <Notes notes={this.state.notes} username={this.props.params.username} />
+                <Notes 
+                  notes={this.state.notes} 
+                  username={this.props.params.username} 
+                  addNote={this.handleAddNote}
+                />
                </div>
            </div>
-            )
+        )
             
     }
 })
