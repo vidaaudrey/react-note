@@ -5,6 +5,7 @@ import UserProfile from './github/UserProfile'
 import Notes from './notes/Notes'
 import ReactFireMixin from 'reactfire'
 import Firebase from 'firebase'
+import GithubApi from '../utils/apiGithub'
 
 const Profile = React.createClass({
   mixins: [ReactFireMixin],
@@ -24,6 +25,11 @@ const Profile = React.createClass({
         // when mounted, 'notes' is going to bind to firebase childRef. bindAsArray is firebase method
         const childRef = this.ref.child(this.props.params.username);
         this.bindAsArray(childRef, 'notes' )
+
+        GithubApi.getGithubInfo(this.props.params.username)
+          .then(function(data){
+            console.log(data);
+          })
     },
     componentWillUnmount: function(){
       // remove the listener 
