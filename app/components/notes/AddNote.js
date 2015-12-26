@@ -25,4 +25,4 @@ const AddNote = React.createClass({
     }
 })
 
-module.exports = AddNote
+export default AddNote

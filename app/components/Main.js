@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-
-const Main = React.createClass({
-  render: function () {
+class Main extends Component {
+  render() {
     return ( < div className = "main" >
       < nav className = "navbar navbar-default"
       role = "navigation" >
@@ -18,6 +17,6 @@ const Main = React.createClass({
     )
 
   }
-})
+}
 
-module.exports = Main
+export default Main

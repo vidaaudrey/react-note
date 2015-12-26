@@ -1,4 +1,4 @@
-import React from'react'
+import React from 'react'
 
 const Repos = React.createClass({
   propTypes: {
@@ -15,4 +15,4 @@ const Repos = React.createClass({
   }
 })
 
-module.exports = Repos 
+export default Repos

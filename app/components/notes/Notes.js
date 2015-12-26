@@ -21,4 +21,4 @@ const Notes = React.createClass({
     }
 })
 
-module.exports = Notes
+export default Notes

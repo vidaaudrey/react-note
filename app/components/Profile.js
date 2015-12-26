@@ -58,4 +58,4 @@ const Profile = React.createClass({
     }
 })
 
-module.exports = Profile 
+export default Profile

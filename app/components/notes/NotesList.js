@@ -14,4 +14,4 @@ const NotesList = React.createClass({
   }
 })
 
-module.exports = NotesList 
+export default NotesList

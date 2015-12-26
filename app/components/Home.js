@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const Home = React.createClass({
-    render: function(){
+class Home extends Component {
+    render(){
         return (
             <h2 className="text-center">
                 Search by github username
@@ -9,6 +9,6 @@ const Home = React.createClass({
             )
             
     }
-})
+}
 
-module.exports = Home 
+export default Home
