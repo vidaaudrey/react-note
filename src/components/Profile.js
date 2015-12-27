@@ -11,11 +11,9 @@ const Profile = React.createClass({
   mixins: [ReactFireMixin],
     getInitialState(){
         return{
-            notes: ['a','b'],
-            repos: [1, 2, 3], 
-            bio: {
-              name: "Audrey Li"
-            }
+            notes: [],
+            repos: [], 
+            bio: {}
         }
     },
 
@@ -25,11 +23,14 @@ const Profile = React.createClass({
         // when mounted, 'notes' is going to bind to firebase childRef. bindAsArray is firebase method
         const childRef = this.ref.child(this.props.params.username);
         this.bindAsArray(childRef, 'notes' )
-
         GithubApi.getGithubInfo(this.props.params.username)
           .then(function(data){
-            console.log(data);
-          })
+            console.log(data)
+            this.setState({
+              bio: data.bio,
+              repos: data.repos
+            })
+          }.bind(this))
     },
     componentWillUnmount: function(){
       // remove the listener 

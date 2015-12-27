@@ -1,5 +1,5 @@
-const githubRootUrl = "https://api.github.com/users/"
 import api from './api'
+const githubRootUrl = "https://api.github.com/users/"
 
 const getGithubRepos = function(username){
     return api.get(githubRootUrl + username+'/repos')
