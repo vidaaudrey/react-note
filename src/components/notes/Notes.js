@@ -2,16 +2,16 @@ import React ,{Component} from 'react'
 import NotesList from './NotesList'
 import AddNote from './AddNote'
 
-export default class Notes extends Component {
-    render() {
-        return ( 
-            < div >
-            < h3 > Notes for {this.props.username} < /h3> 
-            <AddNote username={this.props.username} addNote={this.props.addNote} />
-            < NotesList notes = {this.props.notes} />
-            < /div>
-        )
-    }
+const Notes = ({username, notes, addNote}) => {
+    
+    return ( 
+        < div >
+            < h3 > Notes for {username} < /h3> 
+            <AddNote username={username} addNote={addNote} />
+            < NotesList notes = {notes} />
+        < /div>
+    )
+    
 }
 
 Notes.proTypes = {
@@ -19,3 +19,5 @@ Notes.proTypes = {
     notes: React.PropTypes.array.isRequired, 
     addNote: React.PropTypes.func.isRequired
 }
+
+export default Notes 

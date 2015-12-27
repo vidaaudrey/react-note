@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import SearchGithub from './SearchGithub'
 
-export default class Main extends Component {
-  render() {
+export default ({children, history}) => {
     return ( 
       < div className = "main" >
         < nav className = "navbar navbar-default" role = "navigation" >
           < div className = "col-sm-8 col-sm-offset-2" style = {{ marginTop: 15}} >
-             <SearchGithub/>
+             <SearchGithub history={history} />
           < /div> 
         < /nav> 
         < div className = "container" > 
-          {this.props.children} 
+          {children} 
         < /div> 
       < /div>
     )
   }
-}
+
+
 
