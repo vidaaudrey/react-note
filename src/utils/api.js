@@ -1,10 +1,12 @@
 import Fetch from 'whatwg-fetch'
 
-const get = function(url){
-    return fetch(url).then(function(res){
-        return res.json();
-    })
-}
+const get = (url) => (
+    fetch(url)
+    .then((res) => 
+        res.json()
+    )
+)
+
 
 const api = {
     get: get

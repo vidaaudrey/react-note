@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SearchGithub from './SearchGithub'
 
-class Main extends Component {
+export default class Main extends Component {
   render() {
     return ( 
       < div className = "main" >
@@ -18,4 +18,3 @@ class Main extends Component {
   }
 }
 
-export default Main

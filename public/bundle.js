@@ -24335,15 +24335,13 @@
 	// var Route = Router.Route;
 	// var IndexRoute = Router.IndexRoute
 
-	var routes = _react2.default.createElement(
+	exports.default = _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _Main2.default },
 	    _react2.default.createElement(_reactRouter.Route, { path: 'profile/:username', component: _Profile2.default }),
 	    '//default path',
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default })
 	);
-
-	exports.default = routes;
 
 /***/ },
 /* 209 */
@@ -25589,14 +25587,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var githubRootUrl = "https://api.github.com/users/";
+	var githubRootUrl = 'https://api.github.com/users/';
+	var token = 'e73079f998ab0dc38687add6fa7897ce6f544159';
 
 	var getGithubRepos = function getGithubRepos(username) {
-	    return _api2.default.get(githubRootUrl + username + '/repos');
+	    return _api2.default.get('' + githubRootUrl + username + '/repos?access_token=' + token);
 	};
 
 	var getGithubUserInfo = function getGithubUserInfo(username) {
-	    return _api2.default.get(githubRootUrl + username);
+	    return _api2.default.get('' + githubRootUrl + username + '?access_token=' + token);
 	};
 
 	var apiGitHub = {

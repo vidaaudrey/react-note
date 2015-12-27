@@ -1,27 +1,30 @@
 import api from './api'
-const githubRootUrl = "https://api.github.com/users/"
+const githubRootUrl = 'https://api.github.com/users/'
+const token = 'e73079f998ab0dc38687add6fa7897ce6f544159'
 
-const getGithubRepos = function(username){
-    return api.get(githubRootUrl + username+'/repos')
-}
+const getGithubRepos = (username) => (
+    api.get(`${githubRootUrl}${username}/repos?access_token=${token}`)
+)
 
-const getGithubUserInfo =  function(username){
-    return api.get(githubRootUrl + username)
-}
+
+const getGithubUserInfo =  (username) => (
+     api.get(`${githubRootUrl}${username}?access_token=${token}`)
+)
+
 
 const apiGitHub = {
-    getGithubInfo: function(username){
-        return Promise.all([
+    getGithubInfo: (username) => (
+         Promise.all([
                 getGithubRepos(username), 
                 getGithubUserInfo(username)
-            ]).then(function(values){
-                return {
+            ]).then((values) => (
+                {
                     repos: values[0],
                     bio: values[1]
                 }
-            })
-
-    }
+            ))
+            
+    )
 
 }
 
