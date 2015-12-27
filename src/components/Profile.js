@@ -21,20 +21,29 @@ const Profile = React.createClass({
         this.ref = new Firebase('https://react-note-au.firebaseio.com')
         // this.ref = new Firebase('https://github-note-taker.firebaseio.com')
         // when mounted, 'notes' is going to bind to firebase childRef. bindAsArray is firebase method
-        const childRef = this.ref.child(this.props.params.username);
-        this.bindAsArray(childRef, 'notes' )
-        GithubApi.getGithubInfo(this.props.params.username)
-          .then(function(data){
-            console.log(data)
-            this.setState({
-              bio: data.bio,
-              repos: data.repos
-            })
-          }.bind(this))
+        this.init(this.props.params.username);
     },
     componentWillUnmount: function(){
       // remove the listener 
       this.unbind('notes');
+    },
+
+    componentWillReceiveProps: function(newProps){
+        this.unbind('notes');
+        this.init(newProps.params.username);
+    },
+
+    init(username){
+      const childRef = this.ref.child(username);
+      this.bindAsArray(childRef, 'notes' )
+      GithubApi.getGithubInfo(username)
+        .then(function(data){
+          console.log(data)
+          this.setState({
+            bio: data.bio,
+            repos: data.repos
+          })
+        }.bind(this))
     },
 
     handleAddNote: function(newNote){

@@ -24439,7 +24439,7 @@
 	    handleSubmit: function handleSubmit() {
 	        var username = this.usernameRef.value;
 	        this.usernameRef.value = '';
-	        this.history.pushState(null, 'profile/' + username);
+	        this.history.pushState(null, '/profile/' + username);
 	    },
 	    render: function render() {
 	        return _react2.default.createElement(
@@ -24570,19 +24570,28 @@
 	    this.ref = new _firebase2.default('https://react-note-au.firebaseio.com');
 	    // this.ref = new Firebase('https://github-note-taker.firebaseio.com')
 	    // when mounted, 'notes' is going to bind to firebase childRef. bindAsArray is firebase method
-	    var childRef = this.ref.child(this.props.params.username);
+	    this.init(this.props.params.username);
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    // remove the listener
+	    this.unbind('notes');
+	  },
+
+	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	    this.unbind('notes');
+	    this.init(newProps.params.username);
+	  },
+
+	  init: function init(username) {
+	    var childRef = this.ref.child(username);
 	    this.bindAsArray(childRef, 'notes');
-	    _apiGithub2.default.getGithubInfo(this.props.params.username).then((function (data) {
+	    _apiGithub2.default.getGithubInfo(username).then((function (data) {
 	      console.log(data);
 	      this.setState({
 	        bio: data.bio,
 	        repos: data.repos
 	      });
 	    }).bind(this));
-	  },
-	  componentWillUnmount: function componentWillUnmount() {
-	    // remove the listener
-	    this.unbind('notes');
 	  },
 
 	  handleAddNote: function handleAddNote(newNote) {
