@@ -1,17 +1,15 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-
-const NotesList = React.createClass({
-  render: function(){
+export default class NotesList extends Component {
+  render(){
     const notes = this.props.notes.map(function(note, index){
       return <li className="list-group-item" key={index}>{note['.value']}</li>
     })
+
     return (
         <ul className="list-group">
           {notes}
         </ul>
       )
   }
-})
-
-export default NotesList
+}

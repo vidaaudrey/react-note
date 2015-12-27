@@ -1,11 +1,7 @@
-import React from'react'
+import React, {Component} from 'react'
 
-const UserProfile = React.createClass({
-  propTypes: {
-    username: React.PropTypes.string.isRequired,
-    bio: React.PropTypes.object.isRequired
-  },
-  render: function(){
+export default class UserProfile extends Component {
+  render() {
     return (
       <div> 
         {this.props.username}
@@ -22,6 +18,9 @@ const UserProfile = React.createClass({
       </div>
       )
   }
-})
+}
 
-export default UserProfile
+UserProfile.propTypes = {
+  username: React.PropTypes.string.isRequired,
+  bio: React.PropTypes.object.isRequired
+}
