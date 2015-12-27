@@ -1,14 +1,14 @@
 import api from './api'
 const githubRootUrl = 'https://api.github.com/users/'
-const token = 'e73079f998ab0dc38687add6fa7897ce6f544159'
+import configSec from '../config/configSec'
 
 const getGithubRepos = (username) => (
-    api.get(`${githubRootUrl}${username}/repos?access_token=${token}`)
+    api.get(`${githubRootUrl}${username}/repos?access_token=${configSec.githubAccessToken}`)
 )
 
 
 const getGithubUserInfo =  (username) => (
-     api.get(`${githubRootUrl}${username}?access_token=${token}`)
+     api.get(`${githubRootUrl}${username}?access_token=${configSec.githubAccessToken}`)
 )
 
 

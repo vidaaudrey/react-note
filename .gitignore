@@ -2,3 +2,5 @@ node_modules
 bower_components
 ncp-debug.log
 npm-debug.log
+src/config/configSec.js
+public/bundle.js
